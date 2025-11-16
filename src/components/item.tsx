@@ -1,17 +1,17 @@
 import './item.css'
 
 
-type ItemProps = {
-    name: string;
+export type ItemProps = {
+    title: string;
     description: string;
-    done: boolean;
+    done?: boolean;
 }
 
-export function Item ({name, description,done}:ItemProps) {
+export function Item ({title, description,done}:ItemProps) {
 
     return(
         <div className= {done ? 'task done' : 'task'} >
-            <p className='title'><strong>{name}</strong></p>
+            <p className='title'><strong>{title}</strong></p>
             <p>{description}</p>
         </div>
     )
