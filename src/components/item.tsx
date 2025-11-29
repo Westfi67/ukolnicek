@@ -7,6 +7,8 @@ export type ItemProps = {
     done?: boolean;
 }
 
+export type ItemData = ItemProps
+
 export function Item ({title, description,done}:ItemProps) {
 
     return(
