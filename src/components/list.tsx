@@ -23,21 +23,7 @@ export function List ({title, items}:ListProps) {
                 />
             ))}
 
-
-
-        </section>
-
-
-        // <div>
-        //     <ul>
-        //         {items.map(item => (
-        //             <li key={item.title}>
-        //                 <h2>{item.title}</h2>
-        //                 <p>{item.description}</p>
-        //             </li>
-        //         ))}
-        //     </ul>
-
-        // </div>
+        </section>    
     )
 }
+

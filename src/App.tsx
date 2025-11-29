@@ -2,6 +2,7 @@
 import './App.css'
 import { Item, type ItemProps } from './components/item'
 import { List } from './components/list'
+import { Form } from './components/Form'
 
 import type { ItemData } from './components/item'
 
@@ -40,6 +41,7 @@ function App() {
     <Item title = 'Koupit svačinu'
     description='2 rohlíky a 20 deka vlašáku'
     done = {true}/>
+    <Form/>
     <List title='Úkoly' items={tasks} />
     </>
   )
