@@ -21,11 +21,15 @@ export function Form () {
         description: '',
     })
 
+    
+
     const handleChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData ({
             ...formData,
             [e.target.name]:e.target.value
         })
+
+        console.log(formData)
     }
 
 
@@ -33,10 +37,23 @@ export function Form () {
         <>
         <h2>Zadej úkol</h2>
         <form onSubmit={handleSubmit} className='tasks_input' action="">
-            <label >Název úkolu</label>
-            <input onChange={handleChange} value={formData.title} type="text" name='title' id='title' />
-            <label >Popis úkolu</label>
-            <textarea onChange={handleChange} value={formData.description} name="description" id="description"></textarea>
+            <label htmlFor='title' >Název úkolu</label>
+            <input 
+                value={formData.title} 
+                type="text" 
+                name='title' 
+                id='title' 
+                onChange={handleChange} 
+            />
+            <label htmlFor='description'>Popis úkolu</label>
+            <textarea 
+                name="description" 
+                id="description"
+                rows={3}
+                value={formData.description} 
+                onChange={handleChange} 
+                />
+
             <button type='submit'>Přidat</button>
         </form>
         </>

@@ -1,6 +1,7 @@
-import type{ ItemData } from "./item";
 
 import { Item } from "./item";
+import type{ ItemData } from "./item";
+
 
 export type ListProps = {
     title: string;
