@@ -8,12 +8,24 @@ export type FormData = {
     description: string;
 }
 
-export function Form () {
+type FormProps = {
+  onFormSubmit: (newTask: FormData) => void
+
+}
+
+export function Form ({onFormSubmit}:FormProps) {
 
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log('odesláno')
-        console.log(formData)
+        // console.log('odesláno')
+        console.log('odeslání formuláře',formData)
+        // send data to app
+        onFormSubmit(formData)
+        //empty form
+        setFormData({
+            title:'',
+            description:'',
+        })
     }
 
     const [formData, setFormData] = useState<FormData>({
@@ -54,7 +66,10 @@ export function Form () {
                 onChange={handleChange} 
                 />
 
-            <button type='submit'>Přidat</button>
+            <button 
+            type='submit'
+
+            >Přidat</button>
         </form>
         </>
     )

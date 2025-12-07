@@ -4,7 +4,7 @@ import './item.css'
 export type ItemProps = {
     title: string;
     description: string;
-    done?: boolean;
+    done: boolean;
 }
 
 export type ItemData = ItemProps

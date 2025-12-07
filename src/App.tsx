@@ -1,14 +1,15 @@
+import { useState } from 'react'
 
 import './App.css'
 import { List } from './components/list'
-import { Item, type ItemProps } from './components/item'
-
+import { Item } from './components/item'
 import { Form } from './components/Form'
-import { useState } from 'react'
+
 
 import type { ItemData } from './components/item'
+import type { FormData } from './components/Form'
 
-const tasks: ItemData[] = [
+const tasksData: ItemData[] = [
   {
      title: 'Příprava prezentace',
      description: 'Vytvořit prezentaci pro páteční meeting s klientem.',
@@ -33,9 +34,19 @@ const tasks: ItemData[] = [
 
 
 function App() {
-  
 
+  const [tasks, setTasks] = useState<ItemData[]> (tasksData)
   
+  
+  const handleFormSubmit = (newTask: FormData) => {
+    setTasks([
+      {
+        ...newTask,
+        done:false
+      },
+      ...tasks,
+    ])
+  }
 
   return (
     <>
@@ -43,7 +54,10 @@ function App() {
     <Item title = 'Koupit svačinu'
     description='2 rohlíky a 20 deka vlašáku'
     done = {true}/>
-    <Form/>
+
+
+    <Form onFormSubmit = {handleFormSubmit}/>
+
     <List title='Úkoly' items={tasks} />
     </>
   )
